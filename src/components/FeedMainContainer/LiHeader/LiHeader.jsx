@@ -4,43 +4,21 @@ import * as S from "./Style"
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { PiSirenLight, PiProhibitLight } from 'react-icons/pi';
 import { useRecoilState } from 'recoil';
-import { isGlobalMenuShow } from '../../../store/menuStore';
 
 function LiHeader({ header, itemId }) {
     const [ isMenuShow, setIsMenuShow ] = useState(false);
-    const [ isGlobal, setIsGlobalMenuShow ] = useRecoilState(isGlobalMenuShow);
     
     const handleMenuBtnOnClick = (e) => {
         e.stopPropagation();
-        if(!isGlobal) {
-            setIsMenuShow(true);
-            return;
-        }
-        if(isGlobal && isMenuShow) {
-            setIsMenuShow(false);
-            return;
-        }
-        setIsMenuShow(false);
-        setIsGlobalMenuShow(false);
-        console.log(isMenuShow);
-        console.log(isGlobal);
+        setIsMenuShow(!isMenuShow);
     }
 
     useEffect(() => {
         document.onclick = () => {
             setIsMenuShow(false);
-            console.log(isMenuShow);
-            console.log(isGlobal);
         }
     }, [isMenuShow])
 
-    useEffect(() => {
-        if(isMenuShow && !isGlobal) {
-            setIsMenuShow(false);
-            console.log(isMenuShow);
-            console.log(isGlobal);
-        }
-    }, [isMenuShow, isGlobal])
 
     return (
         <div css={S.SLayout}>
