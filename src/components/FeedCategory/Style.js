@@ -18,8 +18,7 @@ export const SBox = css`
     white-space: nowrap;
 `;
 
-export const SViewPort = (movePx) => 
-css`
+export const SViewPort = css`
     position: relative;
     touch-action: pan-y;
     user-select: none;
@@ -29,16 +28,6 @@ css`
         visibility: visible;
         z-index: 100;
         opacity: 1;
-    }
-    .left-btn {
-        ${(movePx === 0) ? "visibility: hidden !important;" : ""}
-        left: 0;
-        background: linear-gradient(270deg,hsla(0,0%,100%,0),#fff 28px);
-    }
-    .right-btn {
-        ${(movePx === -1203) ? "visibility: hidden !important;" : ""}
-        right: 0;
-        background: linear-gradient(90deg,hsla(0,0%,100%,0),#fff 28px);
     }
 `;
 
@@ -54,6 +43,21 @@ css`
     & span:first-child {
         padding-left: 20px;
     }
+
+    & span:last-child {
+        padding-right: 20px;
+    }
+
+    & ~ .left-btn {
+        ${(movePx === 0) ? "visibility: hidden !important;" : ""}
+        left: 0;
+        background: linear-gradient(270deg,hsla(0,0%,100%,0),#fff 28px);
+    }
+    & ~ .right-btn {
+        ${(movePx === -1203) ? "visibility: hidden !important;" : ""}
+        right: 0;
+        background: linear-gradient(90deg,hsla(0,0%,100%,0),#fff 28px);
+    }
 `;
 
 export const SBtnBox = css`
@@ -61,7 +65,8 @@ export const SBtnBox = css`
     vertical-align: top;
 `;
 
-export const SBtn = css`
+export const SBtn = (isSelected) =>
+css`
     border: 1px solid #eaeef2;
     border-radius: 19px;
     padding: 0 13px;
@@ -70,6 +75,7 @@ export const SBtn = css`
     line-height: 34px;
     letter-spacing: -0.3px;
     color: #666;
+    ${isSelected && "font-weight: 600; border-color: #424242; background: #424242; color: #fff;" }
 `;
 
 export const SMoveBox = css`

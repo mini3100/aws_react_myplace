@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-export const SListHeader = css`
+export const SLayout = css`
     display: flex;
     align-items: center;
     height: 65px;

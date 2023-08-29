@@ -7,8 +7,10 @@ import { Route, Routes } from 'react-router-dom';
 import Feed from './pages/Feed/Feed';
 import Review from './pages/Review/Review';
 import Timeline from './pages/Timeline/Timeline';
+import { useRef } from 'react';
 
 function App() {
+  
   return (
     <>
       <Reset />

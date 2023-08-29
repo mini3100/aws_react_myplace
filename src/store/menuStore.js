@@ -1,6 +1,11 @@
 import { atom } from "recoil";
 
-export const isMenuShowState = atom({
-    key: "isMenuShow",
+export const isGlobalMenuShow = atom({
+    key: "isGlobalMenuShow",
     default: false
+})
+
+export const selectedCategory = atom({
+    key: "selectedCategory",
+    default: "all"
 })

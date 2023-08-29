@@ -1,35 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as S from "./Style"
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { PiSirenLight, PiProhibitLight } from 'react-icons/pi';
-
-import { isMenuShowState } from '../../../store/menuStore';
 import { useRecoilState } from 'recoil';
+import { isGlobalMenuShow } from '../../../store/menuStore';
 
-function LiHeader(props) {
-    const [ isMenuShow, setIsMenuShow ] = useRecoilState(isMenuShowState);
-
+function LiHeader({ header, itemId }) {
+    const [ isMenuShow, setIsMenuShow ] = useState(false);
+    const [ isGlobal, setIsGlobalMenuShow ] = useRecoilState(isGlobalMenuShow);
+    
     const handleMenuBtnOnClick = (e) => {
         e.stopPropagation();
-        setIsMenuShow(!isMenuShow);
+        if(!isGlobal) {
+            setIsMenuShow(true);
+            return;
+        }
+        if(isGlobal && isMenuShow) {
+            setIsMenuShow(false);
+            return;
+        }
+        setIsMenuShow(false);
+        setIsGlobalMenuShow(false);
+        console.log(isMenuShow);
+        console.log(isGlobal);
     }
 
+    useEffect(() => {
+        document.onclick = () => {
+            setIsMenuShow(false);
+            console.log(isMenuShow);
+            console.log(isGlobal);
+        }
+    }, [isMenuShow])
+
+    useEffect(() => {
+        if(isMenuShow && !isGlobal) {
+            setIsMenuShow(false);
+            console.log(isMenuShow);
+            console.log(isGlobal);
+        }
+    }, [isMenuShow, isGlobal])
+
     return (
-        <div css={S.SListHeader}>
+        <div css={S.SLayout}>
             <button css={S.SUserBox}>
                 <div css={S.SUserImgLayout}>
                     <div css={S.SUserImgContainer}>
                         <div css={S.SUserImgBox}>
-                            <img css={S.SUserImg} src="https://m.place.naver.com/my/_next/static/image/_/assets/images/icon_profile_default.cf1f777d594520630ff249eb31ab38c2.png" width="100%" height="100%" />
+                            <img css={S.SUserImg} src={header.userImg} width="100%" height="100%" />
                         </div>
                     </div>
                 </div>
                 <div css={S.UserInfoBox}>
-                    <div css={S.SUserName}>정모긔</div>
+                    <div css={S.SUserName}>{header.username}</div>
                     <div css={S.SUserInfoBox}>
-                        <span css={S.SUserInfo}>사진리뷰 3・</span>
-                        <span css={S.SUserInfo}>팔로워 0</span>
+                        <span css={S.SUserInfo}>사진리뷰 {header.reviewCount}・</span>
+                        <span css={S.SUserInfo}>팔로워 {header.follower}</span>
                     </div>
                 </div>
             </button>
