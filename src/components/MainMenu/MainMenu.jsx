@@ -46,7 +46,10 @@ function MainMenu(props) {
         <div css={S.SLayout}>
             <div css={S.SContainer}>
                 {mainMenuListArray.list.map(item => {
-                    const isSelected = pathName.startsWith(item.path);
+                    let isSelected = pathName.startsWith(item.path);
+                    if(item.path === '/feed' && pathName === '/'){
+                        isSelected = true;
+                    }
                     return (
                         <>
                             <button css={S.SMenuBox(isSelected)} key={item.id} onClick={() => {

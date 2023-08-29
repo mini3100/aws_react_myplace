@@ -1,6 +1,11 @@
 import { css } from "@emotion/react";
 
 export const SLayout = css`
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5000;
     padding: 0 20px;
     background: #06b495;
     box-shadow: 0 12px 10px -10px rgba(0,0,0,.03);

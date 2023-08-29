@@ -7,10 +7,12 @@ export const GSCommon = css`
         color: #242424;
     }
     html {
+        background-color: #f9f9f9;
         width: 100%;
         height: 100%;
     }
     button {
+        padding: 0;
         border: none;
         background-color: transparent;
         cursor: pointer;

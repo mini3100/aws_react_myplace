@@ -15,7 +15,8 @@ function App() {
       <Global styles={S.GSCommon} />
       <MainLayout>
         <Routes>
-          <Route path='/feed' element={ <Feed/> }/>
+          <Route path='/' element={ <Feed/> }/>
+          <Route path='/feed/*' element={ <Feed/> }/>
           <Route path='/timeline' element={ <Timeline/> }/>
           <Route path='/review' element={ <Review/> }/>
           <Route path='/reservation'/>

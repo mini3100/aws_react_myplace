@@ -33,7 +33,8 @@ export const SLeftBox = css`
     }
 `
 
-export const SViewBtn = css`
+export const SViewBtn = (isSelected) => 
+css`
     border-radius: 5px;
     padding: 0 13px;
     background: #ffffff;
@@ -41,6 +42,9 @@ export const SViewBtn = css`
     font-size: 15px;
     font-weight: 500;
     height: 42px;
+    letter-spacing: -.5px;
+    line-height: 42px;
+    ${isSelected && "background-image: linear-gradient(90deg,#2d8dee,#2da1ee);box-shadow: 0 2px 6px 0 rgba(37,146,255,.35);font-weight: 700;color: #fff;"}
 `
 
 export const SRightBox = css`
@@ -52,10 +56,11 @@ export const SRightBox = css`
 `
 
 export const SDivider = css`
+    padding-left: 8px;
     width: 2px;
     height: 24px;
+    border-left: 2px solid #e2e5e8;
     border-radius: 2px;
-    background-color: #e2e5e8;
 `;
 
 export const SLocationBtn = css`

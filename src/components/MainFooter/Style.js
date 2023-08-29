@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 
 export const SLayout = css`
     padding: 42px 0 36px;
-    background: rgba(var(--place-color-bg101),1);
+    background: #f9f9f9;
     text-align: center;
     button {
         padding: 0;
