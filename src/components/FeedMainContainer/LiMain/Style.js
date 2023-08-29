@@ -3,7 +3,6 @@ import { css } from "@emotion/react";
 export const SImgLayout = css`
     position: relative;
     margin-top: 2px;
-    border-radius: 8px;
     padding-top: 360px;
     overflow: hidden;
     width: 680px;
@@ -22,14 +21,56 @@ export const SImgContainer = css`
 `;
 
 export const SImgBox = css`
-    position: relative;
     display: flex;
-    flex: 1 1;
+    height: 100%;
+
+    & > div:nth-child(2) {
+        margin-left: 2px;
+    }
+    & > div:first-child:nth-last-child(1) {
+        flex: none;
+        width: 100%;
+    }
+    & > div:first-child:nth-last-child(1) > div {
+        border-radius: 8px;
+    }
+    & > div:first-child:nth-last-child(2) {
+        flex: none;
+        width: 59%;
+    }
+`;
+
+export const SLeftBox = css`
+    & > div {
+        border-radius: 8px 0 0 8px;
+    }
+`;
+
+export const SRightBox = css`
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    -webkit-box-align: center;
     width: 100%;
     height: 100%;
+    & > div:first-child:nth-last-child(1) {
+        height: 100%;
+    }
+
+    & > div:first-child {
+        border-top-right-radius: 8px;
+    }
+
+    & > div:last-child:first-child {
+        border-bottom-right-radius: 8px;
+    }
+
+    & > div:first-child:nth-last-child(2) {
+        height: 50%;
+    }
+
+    & > div:last-child:nth-child(2) {
+        margin-top: 2px;
+        border-bottom-right-radius: 8px;
+    }
 `;
 
 export const SImg = (url) => 
@@ -38,8 +79,8 @@ css`
     position: relative;
     display: flex;
     flex: 1 1;
-    border-radius: 8px;
     width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;

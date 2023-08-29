@@ -6,7 +6,7 @@ import { selectedCategory } from '../../store/menuStore';
 import { useRecoilState } from 'recoil';
 
 function FeedCategory(props) {
-    const [ categoryList, setCategoryList ] = useState(["한식", "자연명소", "카페", "피크닉", "양식", "등산・트레킹", "일식", "낚시", "클래스・소품", "분식/치킨", "체험관광", "중식", "역사유적", "아시아/퓨전 음식", "캠핑", "뷔페/레스토랑", "숙박", "물놀이", "문화예술", "레저・액티비티", "테마파크", "아이와 함께"]);
+    const [ categoryList, setCategoryList ] = useState(["한식", "카페", "클래스・소품", "자연명소", "피크닉", "양식", "등산・트레킹", "일식", "낚시", "분식/치킨", "체험관광", "중식", "역사유적", "아시아/퓨전 음식", "캠핑", "뷔페/레스토랑", "숙박", "물놀이", "문화예술", "레저・액티비티", "테마파크", "아이와 함께"]);
 
     const [ movePx, setMovePx ] = useState(0);
     const [ isSelectedCategory, setIsSelectedCategory ] = useRecoilState(selectedCategory);

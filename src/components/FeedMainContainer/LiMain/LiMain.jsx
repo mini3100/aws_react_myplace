@@ -9,8 +9,17 @@ function LiMain({ main }) {
             <div css={S.SImgLayout}>
                 <button css={S.SImgContainer}>
                     <div css={S.SImgBox}>
-                        <div css={S.SImg(main.img)}></div>
+                        <div css={S.SLeftBox}>
+                            <div css={S.SImg(main.img1)}></div>
+                        </div>
+                        {!!main.img2 && (
+                        <div css={S.SRightBox}>
+                            <div css={S.SImg(main.img2)}></div>
+                            {!!main.img3 && (
+                            <div css={S.SImg(main.img3)}></div>)}
+                        </div>)}
                     </div>
+                    
                     <div css={S.SLocationContainer}>
                         <div css={S.SLocationBox}>
                             <MdLocationOn css={S.SLocationIcon}/>
