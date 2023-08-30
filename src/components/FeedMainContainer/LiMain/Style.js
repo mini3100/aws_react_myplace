@@ -20,23 +20,24 @@ export const SImgContainer = css`
     height: 100%;
 `;
 
-export const SImgBox = css`
+export const SImgBox = (isImg3) => 
+css`
     display: flex;
     height: 100%;
 
-    & > div:nth-child(2) {
+    & > div:nth-of-type(2) {
         margin-left: 2px;
     }
-    & > div:first-child:nth-last-child(1) {
+    & > div:first-of-type:nth-last-of-type(1) {
         flex: none;
         width: 100%;
     }
-    & > div:first-child:nth-last-child(1) > div {
+    & > div:first-of-type:nth-last-of-type(1) > div {
         border-radius: 8px;
     }
-    & > div:first-child:nth-last-child(2) {
+    & > div:first-of-type:nth-last-of-type(2) {
         flex: none;
-        width: 59%;
+        ${isImg3 ? "width: 59%;" : "width: 50%;"}
     }
 `;
 
@@ -51,23 +52,23 @@ export const SRightBox = css`
     flex-direction: column;
     width: 100%;
     height: 100%;
-    & > div:first-child:nth-last-child(1) {
+    & > div:first-of-type:nth-last-of-type(1) {
         height: 100%;
     }
 
-    & > div:first-child {
+    & > div:first-of-type {
         border-top-right-radius: 8px;
     }
 
-    & > div:last-child:first-child {
+    & > div:last-of-type:first-of-type {
         border-bottom-right-radius: 8px;
     }
 
-    & > div:first-child:nth-last-child(2) {
+    & > div:first-of-type:nth-last-of-type(2) {
         height: 50%;
     }
 
-    & > div:last-child:nth-child(2) {
+    & > div:last-of-type:nth-of-type(2) {
         margin-top: 2px;
         border-bottom-right-radius: 8px;
     }

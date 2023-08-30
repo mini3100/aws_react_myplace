@@ -119,7 +119,7 @@ export const SMenuList = css`
     border: 1px solid #dee0e2;
     border-radius: 18px;
     background: #fff;
-    & button:last-child {
+    & button:last-of-type {
         border-top: 1px solid #eaeef2;
     }
 `;

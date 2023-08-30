@@ -40,11 +40,11 @@ css`
     width: 100%;
     height: 100%;
 
-    & span:first-child {
+    & span:first-of-type {
         padding-left: 20px;
     }
 
-    & span:last-child {
+    & span:last-of-type {
         padding-right: 20px;
     }
 

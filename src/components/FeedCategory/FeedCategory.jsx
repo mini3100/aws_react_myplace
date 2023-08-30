@@ -12,26 +12,43 @@ function FeedCategory(props) {
     const [ isSelectedCategory, setIsSelectedCategory ] = useRecoilState(selectedCategory);
 
     const handleLeftBtnOnClick = (e) => {
-        if(movePx === -1203) {
-            setMovePx(-483);
-        } else if(movePx === -483 || movePx === - 720) {
+        if(movePx <= -720){
+            setMovePx(movePx + 720);
+        } else {
             setMovePx(0);
         }
     }
 
     const handleRightBtnOnClick = (e) => {
-        if(movePx === 0) {
-            setMovePx(-720);
-        } else if(movePx === -720) {
+        console.log(movePx);
+        if(movePx > -720) {
+            setMovePx(movePx - 720);
+        } else {
             setMovePx(-1203);
         }
     }
 
-    const handelCategoryBtnOnClick = (item) => {
+    const handelCategoryBtnOnClick = (e, item) => {
         if(item.item === isSelectedCategory.item){
             setIsSelectedCategory("all");
         } else {
             setIsSelectedCategory(item);
+            const buttonRect = e.target.getBoundingClientRect();
+            const xCoordinate = buttonRect.left;    //버튼 x 좌표
+            const buttonWidth = buttonRect.width;   //버튼 너비
+
+            const windowWidth = window.innerWidth;  //윈도우 창 너비
+            const centerX = windowWidth / 2;
+            
+            const newPosition = centerX - (buttonWidth / 2) - xCoordinate;
+
+            if(movePx + newPosition > 0) {
+                setMovePx(0);
+            } else if(movePx + newPosition < -1203) {
+                setMovePx(-1203);
+            } else {
+                setMovePx(movePx + newPosition);
+            }
         }
     }
 
@@ -45,7 +62,7 @@ function FeedCategory(props) {
                                 let isSelected = (isSelectedCategory.item === {item}.item);
                                 return (
                                     <span css={S.SBtnBox} key={item}>
-                                        <button css={S.SBtn(isSelected)} onClick={() => {handelCategoryBtnOnClick({item});}}>{item}</button>
+                                        <button css={S.SBtn(isSelected)} onClick={(e) => {handelCategoryBtnOnClick(e, {item});}}>{item}</button>
                                     </span>
                                 );
                             })}

@@ -40,7 +40,7 @@ function FeedHeader(props) {
                                 isSelected = true;
                             }
                             return (
-                                <div><button css={S.SViewBtn(isSelected)} key={item.id} onClick={() => {
+                                <div key={item.id}><button css={S.SViewBtn(isSelected)} key={item.id} onClick={() => {
                                     handleMenuClick(item.path);
                                 }}>{item.name}</button></div>
                             )

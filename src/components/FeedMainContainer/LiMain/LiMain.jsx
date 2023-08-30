@@ -8,7 +8,7 @@ function LiMain({ main }) {
         <>
             <div css={S.SImgLayout}>
                 <button css={S.SImgContainer}>
-                    <div css={S.SImgBox}>
+                    <div css={S.SImgBox(!!main.img3)}>
                         <div css={S.SLeftBox}>
                             <div css={S.SImg(main.img1)}></div>
                         </div>

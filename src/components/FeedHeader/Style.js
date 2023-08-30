@@ -25,10 +25,10 @@ export const SLeftBox = css`
         vertical-align: top;
         padding: 6px 0 6px 8px;
     }
-    & div:first-child {
+    & div:first-of-type {
         padding-left: 20px;
     }
-    & div:last-child {
+    & div:last-of-type {
         padding-right: 20px;
     }
 `

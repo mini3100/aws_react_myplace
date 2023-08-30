@@ -138,6 +138,32 @@ function FeedMainContainer(props) {
                 placeCategory: "반지공방",
                 placeLocation: "서울특별시 마포구 서교동"
             }
+        },
+        {
+            id: 6,
+            category: "양식",
+            header: {
+                userImg: "https://m.place.naver.com/my/_next/static/image/_/assets/images/icon_profile_default.cf1f777d594520630ff249eb31ab38c2.png",
+                username: "영이393",
+                reviewCount: 13,
+                follower: 0
+            },
+            main: {
+                img1: "https://pup-review-phinf.pstatic.net/MjAyMzA4MjlfNTQg/MDAxNjkzMjg5NTExMzA0.ALf_AUWNSuubX_6qJicy6yUsCz63MvdflAcwhXCWDDMg.h3wHO5hQWgvEqqgMD8qXXHVVzEsNaVZzb9Z-jLhEypcg.JPEG/F99D26F8-3309-4112-B590-701E7E8070E0.jpeg?type=f442_442_70_sharpen",
+                img2: "https://pup-review-phinf.pstatic.net/MjAyMzA4MjlfMTQw/MDAxNjkzMjg5NTEwODYx.YGNRgz7S74sTEFp839y1-wLp1Z-1eLMGia_wxABY_Wgg.im8xPJ3CZPbImrwnRyK2sdaieaL7-oJUOTFwlXZj_W0g.JPEG/8A100316-A8AF-4CEF-BAD6-B0E920AADF40.jpeg?type=m385_385_70_sharpen",
+                img3: "https://pup-review-phinf.pstatic.net/MjAyMzA4MjlfMzEg/MDAxNjkzMjg5NTExNTQw.umml0qXZTpRz_p5PvMc5bYPjdBbxvT3D41COuWv226Ug.F6sa1REA4VvizGmtcFqOf-Olt3XPJUppFwVSaiJFk3Eg.JPEG/E404A060-C268-4AB3-A979-2A0E94E60FC3.jpeg?type=m385_385_70_sharpen",
+                location: "전주시 고사동 최신",
+                comment: "피자가 젤 맛있어용 ㅎㅎ 굳 두번째 방문인데 또 올듯하네여",
+                hashtagImg: "https://ssl.pstatic.net/static/pup/emoji/couch_and_lamp20220119222025.png",
+                hashtag: "인테리어가 멋져요",
+                hashtagCount: 3
+            },
+            footer: {
+                date: "8.22 화",
+                placeName: "모악산호랭이",
+                placeCategory: "양식",
+                placeLocation: "전라북도 전주시 완산구 고사동"
+            }
         }
     ])
 
@@ -147,10 +173,10 @@ function FeedMainContainer(props) {
         <ul css={S.SLayout}>
             {feedListArray.filter(item => (item.category === isSelectedCategory.item || isSelectedCategory === "all")).map(item => (
                 <li css={S.SListBox} key={item.id}>
-                <LiHeader header={item.header} itemId={item.id}/>
-                <LiMain main={item.main}/>
-                <LiFooter footer={item.footer}/>
-            </li>
+                    <LiHeader header={item.header} itemId={item.id}/>
+                    <LiMain main={item.main}/>
+                    <LiFooter footer={item.footer}/>
+                </li>
             ))}
         </ul>
     );
